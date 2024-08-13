@@ -1,0 +1,75 @@
+<div class="container-full">
+    <div class="container">
+      <div class="right-side">
+        <mat-horizontal-stepper backgroundColor="primary" >
+          <mat-step>
+            <h1>Create Account</h1>
+            <form [formGroup]="signupForm1">
+              <div style="display: flex; flex-direction: column; gap: 24px;">
+                <div class="input-container" style="display: flex; flex-direction: column;">
+                  <label style="color: dodgerblue; font-size: 12px; font-weight: 600;">Enter Email ID</label>
+                  <input class="input-field" type="email" formControlName="email" placeholder="Loremimpusm@gmail.com" />
+                  <div *ngIf="signupForm1.get('email')?.touched && signupForm1.get('email')?.invalid" style="color: red;">
+                    <small *ngIf="signupForm1.get('email')?.errors?.['required']">Email is required.</small>
+                    <small *ngIf="signupForm1.get('email')?.errors?.['email']">Invalid email format.</small>
+                  </div>
+                </div>
+                <div class="input-container" style="display: flex; flex-direction: column;">
+                  <label style="color: dodgerblue; font-size: 12px; font-weight: 600;">Enter Full Name</label>
+                  <input class="input-field" type="text" formControlName="fullName" placeholder="Full name" />
+                  <div *ngIf="signupForm1.get('fullName')?.touched && signupForm1.get('fullName')?.invalid" style="color: red;">
+                    <small *ngIf="signupForm1.get('fullName')?.errors?.['required']">Full name is required.</small>
+                  </div>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                  <label style="color: dodgerblue; font-size: 12px; font-weight: 600;">Enter Password</label>
+                  <input class="input-field" type="password" formControlName="password" placeholder="Password" />
+                  <div *ngIf="signupForm1.get('password')?.touched && signupForm1.get('password')?.invalid" style="color: red;">
+                    <small *ngIf="signupForm1.get('password')?.errors?.['required']">Password is required.</small>
+                    <small *ngIf="signupForm1.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</small>
+                  </div>
+                </div>
+                <button class="btn" matStepperNext>Next</button>
+                <p class="goto-signup">Already a member?<span (click)="goToLogin()">Login</span></p>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step style="top: 8px;">
+            <p class="inline-container" (click)="stepper.previous()"><mat-icon>undo</mat-icon>Go back</p>
+            <form [formGroup]="signupForm2" (ngSubmit)="onSubmit()">
+              <div style="display: flex; flex-direction: column; gap: 24px;">
+                <div class="input-container" style="display: flex; flex-direction: column;">
+                  <label style="color: dodgerblue; font-size: 12px; font-weight: 600;">Organization name</label>
+                  <input class="input-field" type="text" formControlName="orgName" placeholder="Enter Organization name" />
+                </div>
+                <div class="input-container" style="display: flex; flex-direction: column;">
+                  <label style="color: dodgerblue; font-size: 12px; font-weight: 600;">Organization Id</label>
+                  <input class="input-field" type="text" formControlName="orgId" placeholder="Enter Organization Id" />
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                  <label style="color: dodgerblue; font-size: 12px; font-weight: 600;">Designation</label>
+                  <input class="input-field" type="text" formControlName="designation" placeholder="Enter Designation" />
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                  <label style="color: dodgerblue; font-size: 12px; font-weight: 600;">Birth-date</label>
+                  <input class="input-field" type="date" formControlName="birthdate" placeholder="mm/dd/yyyy" />
+                </div>
+                <div style="display: flex; gap: 94px;">
+                  <div style="display: flex; flex-direction: column; width: 100px;">
+                    <label style="color: dodgerblue; font-size: 12px; font-weight: 600;">City</label>
+                    <input style="width: 143px;" class="input-field" type="text" formControlName="city" placeholder="Enter City" />
+                  </div>
+                  <div style="display: flex; flex-direction: column; width: 100px;">
+                    <label style="color: dodgerblue; font-size: 12px; font-weight: 600;">Pincode</label>
+                    <input style="width: 143px;" class="input-field" type="text" formControlName="pincode" placeholder="Enter Pincode" />
+                  </div>
+                </div>
+                <button class="btn" type="submit">Submit</button>
+              </div>
+            </form>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,36 @@
+.texts{
+    display: flex;
+    flex-direction: column;
+}
+
+.texts h2{
+    text-align: center;
+}
+
+.texts p{
+    color: slategray;
+    margin-top: -10px;
+}
+
+.container{
+    position: absolute;
+    top: 126px;
+    left: 520px;
+    text-align: center;
+}
+
+.goto-signup {
+    font-size: 6px;
+    margin-top: 4px;
+    font-size: 16px;
+    color: darkslategray;
+    margin-left: 6px;
+    text-decoration: overline;
+}
+
+.goto-signup span{
+    margin-left: 4px;
+    font-size: 16px;
+    color: blue;
+    cursor: pointer;
+}

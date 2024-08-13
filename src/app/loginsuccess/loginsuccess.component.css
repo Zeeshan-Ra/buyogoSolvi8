@@ -1,0 +1,20 @@
+.texts{
+    display: flex;
+    flex-direction: column;
+}
+
+.texts h2{
+    text-align: center;
+}
+
+.texts p{
+    color: slategray;
+    margin-top: -10px;
+}
+
+.container{
+    position: absolute;
+    top: 126px;
+    left: 520px;
+    text-align: center;
+}

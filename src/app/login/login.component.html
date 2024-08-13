@@ -1,0 +1,38 @@
+<div class="container-full">
+    <div class="right-side">
+      <h1>Welcome</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <div class="input-container" style="display: flex; flex-direction: column;">
+            <label style="color: dodgerblue; font-size: 12px; font-weight: 600;">Enter Email ID</label>
+            <input
+              class="input-field"
+              type="email"
+              placeholder="Loremimpusm@gmail.com"
+              formControlName="email"
+            />
+            <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" style="color: red;">
+              <small *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</small>
+              <small *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</small>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <label style="color: dodgerblue; font-size: 12px; font-weight: 600;">Enter Password</label>
+            <input
+              class="input-field"
+              type="password"
+              placeholder="Password"
+              formControlName="password"
+            />
+            <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" style="color: red;">
+              <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
+              <small *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</small>
+            </div>
+          </div>
+          <button class="btn" type="submit" [disabled]="loginForm.invalid">Login</button>
+          <p class="goto-signup">Not a member?<span (click)="goToSignup()">Signup</span></p>
+        </div>
+      </form>
+    </div>
+  </div>
+  
